@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayPal QR Code - Nexus Style</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
+
+    body {
+      background: #0a0f0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ===== BLOC À COPIER DANS VOTRE SITE ===== */
+    .paypal-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 30px;
+      background: #0d1a0d;
+      border: 1px solid rgba(57, 255, 100, 0.25);
+      border-radius: 16px;
+      max-width: 320px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .paypal-section::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(57,255,100,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .paypal-section::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle, rgba(57,255,100,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .paypal-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #39ff64;
+      opacity: 0.7;
+    }
+
+    .paypal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      text-align: center;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .paypal-title span {
+      color: #39ff64;
+    }
+
+    .qr-wrapper {
+      position: relative;
+      padding: 16px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow:
+        0 0 0 1px rgba(57,255,100,0.3),
+        0 0 30px rgba(57,255,100,0.15),
+        0 8px 32px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .qr-wrapper:hover {
+      transform: scale(1.03);
+      box-shadow:
+        0 0 0 1px rgba(57,255,100,0.6),
+        0 0 50px rgba(57,255,100,0.25),
+        0 12px 40px rgba(0,0,0,0.6);
+    }
+
+    /* REMPLACEZ 'qrcode-paypal.jpg' par le chemin de votre image */
+    .qr-wrapper img {
+      width: 200px;
+      height: 200px;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .paypal-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(57,255,100,0.08);
+      border: 1px solid rgba(57,255,100,0.2);
+      border-radius: 999px;
+      padding: 8px 18px;
+    }
+
+    .paypal-badge svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .paypal-badge span {
+      font-size: 13px;
+      font-weight: 700;
+      color: #39ff64;
+      letter-spacing: 1px;
+    }
+
+    .paypal-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .scan-cta {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .scan-cta em {
+      font-style: normal;
+      color: #39ff64;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    /* ===== FIN DU BLOC ===== */
+  </style>
+</head>
+<body>
+
+  <!-- ===== COPIEZ CE BLOC DANS VOTRE INDEX.HTML ===== -->
+  <section class="paypal-section">
+
+    <p class="paypal-label">Paiement rapide</p>
+
+    <h2 class="paypal-title">Sebastien <span>Figari</span></h2>
+
+    <div class="qr-wrapper">
+      <!-- REMPLACEZ le src par le chemin de votre image uploadée sur GitHub -->
+      <img src="qrcode-paypal.jpg" alt="QR Code PayPal Sebastien Figari" />
+    </div>
+
+    <div class="paypal-badge">
+      <!-- Logo PayPal SVG inline -->
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.24 3.343a.77.77 0 0 1 .76-.645h6.714c2.314 0 3.952.49 4.87 1.456.882.928.992 2.073.527 3.657l-.008.03v.83c-.636 3.296-2.814 4.97-6.473 4.97H8.31a.77.77 0 0 0-.76.645l-.474 3.001z" fill="#009cde"/>
+        <path d="M19.608 8.5c-.73 3.79-3.245 5.71-7.544 5.71H9.83l-1.075 6.836h2.607a.641.641 0 0 0 .632-.54l.026-.14.503-3.182.032-.175a.641.641 0 0 1 .633-.54h.399c2.58 0 4.602-.952 5.193-3.706.247-1.14.12-2.09-.435-2.76a2.29 2.29 0 0 0-.736-.503z" fill="#012169"/>
+      </svg>
+      <span>PayPal</span>
+    </div>
+
+    <p class="scan-cta">Scannez. Payez. <em>C'est réglé.</em></p>
+
+    <p class="paypal-sub">sebastien figari · paiement sécurisé</p>
+
+  </section>
+  <!-- ===== FIN DU BLOC ===== -->
+
+</body>
+</html>
